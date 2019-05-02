@@ -1,4 +1,9 @@
-@extends('layout.app', ["current" => $current])
+@extends(
+	'layout.app', 
+	[
+		"current" => $current
+	]
+)
 
 @section('body')
 
@@ -20,12 +25,15 @@
 	            			<h5 class="card-title">{{$headerTitle}}</h5> 
 	          			</div>
 	          			<div class="card-body">
-	            			<form action="{{$actionForm}}" method="POST">
-								<main role="main">
-									@hasSection('form-view')
-										@yield('form-view')
-									@endif
-								</main>
+	            			<form action="{{$actionForm}}{{$id}}" method="POST">
+								@hasSection('form-view')
+									@yield('form-view')
+								@endif
+								<div class="col-sm-6">
+									<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+									<button type="cancel" class="btn btn-danger btn-sm">Cancelar</button>
+									<button type="reset" class="btn btn-warning btn-sm">Limpar</button>
+								</div>
 	            			</form>
 	          			</div>          
 	{{-- 3) --}}
