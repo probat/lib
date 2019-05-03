@@ -1,0 +1,14 @@
+{
+    "name": "fabiopalmela/libcredicom",
+    "type": "git",
+    "description": "Componentes.",
+    "license": "MIT",
+    "require": {
+        "php": "^7.1.3"
+    },
+    "config": {
+        "secure-http": false
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
