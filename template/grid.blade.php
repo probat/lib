@@ -6,9 +6,21 @@
 	<head>
 	    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	    <title>{{$title}}</title>
-	    <meta name="csrf-token" content="{{ csrf_token() }}">
+	    <meta name="csrf-token" content="{{ csrf_token() }}">z
 		<style>
 			body { padding: 20px; }
+			table.dataTable thead .sorting:after,
+			table.dataTable thead .sorting:before,
+			table.dataTable thead .sorting_asc:after,
+			table.dataTable thead .sorting_asc:before,
+			table.dataTable thead .sorting_asc_disabled:after,
+			table.dataTable thead .sorting_asc_disabled:before,
+			table.dataTable thead .sorting_desc:after,
+			table.dataTable thead .sorting_desc:before,
+			table.dataTable thead .sorting_desc_disabled:after,
+			table.dataTable thead .sorting_desc_disabled:before {
+			bottom: .5em;
+			}
 		</style>
 	</head>
 	<body>
@@ -20,7 +32,7 @@
 	          				<div class="card-header">
 	            				<h5 class="card-title">{{$headerTitle}}</h5> 
 	          				</div>
-	          				<table class="table table-ordered table-hover" id="{{$table['id']}}">
+	          				<table id="dtBasicExample" class="table table-striped table-bordered table-sm" id="{{$table['id']}}" cellspacing="0" width="100%">
 								@hasSection('grid')
 									@yield('grid')	
 								@endif
@@ -65,7 +77,20 @@
 	      		</div>
 	    	</div>
 	  	</main>
-		<script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('js/app.js') }}" type="text/javascript">
+			$(document).ready(function () {
+				$('#dtBasicExample').DataTable();
+				$('#dtBasicExample').addClass('bs-select');
+				$('#dtBasicExample').DataTable({
+					columnDefs: [
+						{
+							orderable: false,
+							targets: 3
+						}
+					]
+				});
+			});
+		</script>
 	</body>
 </html>
 
