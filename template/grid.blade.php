@@ -79,16 +79,7 @@
 	  	</main>
 		<script src="{{ asset('js/app.js') }}" type="text/javascript">
 			$(document).ready(function () {
-				$('#dtBasicExample').DataTable();
-				$('#dtBasicExample').addClass('bs-select');
-				$('#dtBasicExample').DataTable({
-					columnDefs: [
-						{
-							orderable: false,
-							targets: 3
-						}
-					]
-				});
+				$('#dtBasicExample').DataTable();				
 			});
 		</script>
 	</body>
